@@ -36,14 +36,23 @@ public class Controller implements ActionListener {
         principal.tablas.getJscp1().setVisible(true);
         principal.tablas.getJscp2().setVisible(false);
         principal.tablas.getJscp3().setVisible(false);
+        principal.tablas.getFondo1().setVisible(true);
+        principal.tablas.getFondo2().setVisible(false);
+        principal.tablas.getFondo3().setVisible(false);
     } else if (command.equals("SOLICITUDES")) {
         principal.tablas.getJscp1().setVisible(false);
         principal.tablas.getJscp2().setVisible(true);
         principal.tablas.getJscp3().setVisible(false);
+        principal.tablas.getFondo1().setVisible(false);
+        principal.tablas.getFondo2().setVisible(true);
+        principal.tablas.getFondo3().setVisible(false);
     } else if (command.equals("EMPRESAS")) {
         principal.tablas.getJscp1().setVisible(false);
         principal.tablas.getJscp2().setVisible(false);
         principal.tablas.getJscp3().setVisible(true);
+        principal.tablas.getFondo1().setVisible(false);
+        principal.tablas.getFondo2().setVisible(false);
+        principal.tablas.getFondo3().setVisible(true);
     } else if (command.equals("ENVIAR")) {
 
     }

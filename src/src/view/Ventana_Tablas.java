@@ -7,17 +7,15 @@ import java.awt.*;
 public class Ventana_Tablas extends JPanel {
     private JTable tablaSolicitudes, tablaHeroku, tablaEmpleados;
     private JButton atras, Solicitudes, Insumos, Empresas;
-
+    private JLabel fondo1, fondo2, fondo3;
     private DefaultTableModel modelotabla1,modelotabla2,modelotabla3;
     private JScrollPane jscp1,jscp2,jscp3;
     private int cantidad = 0;
 
     public Ventana_Tablas(){
-
         tablaSolicitudes = new JTable();
-
-        setSize(700,600);
-        setBackground(Color.cyan);
+        setSize(700,700);
+        setBackground(Color.GRAY);
         setLayout(null);
         iniciarcomponentes();
         crearTablaEmpleados();
@@ -26,7 +24,7 @@ public class Ventana_Tablas extends JPanel {
         setVisible(false);
     }
     private void crearTablaEmpleados() {
-        tablaEmpleados = new JTable(new DefaultTableModel(new Object[] {"Nombre Empleado", "Nombre Empresa", "Solicitud"}, cantidad));
+        tablaEmpleados = new JTable(new DefaultTableModel(new Object[] {"Nombre Empleado", "Solicitud", "Empresa"}, cantidad));
         modelotabla1 = (DefaultTableModel) tablaEmpleados.getModel();
         jscp1 = new JScrollPane(tablaEmpleados);
         jscp1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -34,11 +32,17 @@ public class Ventana_Tablas extends JPanel {
         jscp1.setBounds(50,50,550,400);
         jscp1.setVisible(false);
         add(jscp1);
-        cantidad++;
+
+        ImageIcon imagen = new ImageIcon("src/Fondo.jpg");
+        ImageIcon icon = new ImageIcon(imagen.getImage().getScaledInstance(700,700, Image.SCALE_DEFAULT));
+        fondo1 = new JLabel(icon);
+        fondo1.setBounds(0,0,700,700);
+        add(fondo1);
+
     }
 
     private void crearTablaInsumos() {
-        tablaHeroku = new JTable(new DefaultTableModel(new Object[] {"Identificacion", "Nombre insumo", "Descripcion", "ID Ciudad"}, cantidad));
+        tablaHeroku = new JTable(new DefaultTableModel(new Object[] {"NombreInsumo", "Descripcion", "Nombre Empresa"}, cantidad));
         modelotabla2 = (DefaultTableModel) tablaHeroku.getModel();
         jscp2 = new JScrollPane(tablaHeroku);
         jscp2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -46,11 +50,15 @@ public class Ventana_Tablas extends JPanel {
         jscp2.setBounds(50,50,550,400);
         jscp2.setVisible(false);
         add(jscp2);
-        cantidad++;
+        ImageIcon imagen = new ImageIcon("src/Fondo.jpg");
+        ImageIcon icon = new ImageIcon(imagen.getImage().getScaledInstance(700,700, Image.SCALE_DEFAULT));
+        fondo2 = new JLabel(icon);
+        fondo2.setBounds(0,0,700,700);
+        add(fondo2);
     }
 
     private void crearTablaEmpresas() {
-        tablaSolicitudes = new JTable(new DefaultTableModel(new Object[] {"Identificacion", "Nombre Empresa", "ID Empleado"}, cantidad));
+        tablaSolicitudes = new JTable(new DefaultTableModel(new Object[] {"ID informacion", "Facturacion", "Empresa"}, cantidad));
         modelotabla3 = (DefaultTableModel) tablaSolicitudes.getModel();
         jscp3 = new JScrollPane(tablaSolicitudes);
         jscp3.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -58,7 +66,11 @@ public class Ventana_Tablas extends JPanel {
         jscp3.setBounds(50,50,550,400);
         jscp3.setVisible(false);
         add(jscp3);
-        cantidad++;
+        ImageIcon imagen = new ImageIcon("src/Fondo.jpg");
+        ImageIcon icon = new ImageIcon(imagen.getImage().getScaledInstance(700,700, Image.SCALE_DEFAULT));
+        fondo3 = new JLabel(icon);
+        fondo3.setBounds(0,0,700,700);
+        add(fondo3);
     }
     private void iniciarcomponentes() {
 
@@ -76,7 +88,7 @@ public class Ventana_Tablas extends JPanel {
         Solicitudes.setFont(new Font("Arial", Font.BOLD, 15));
         add(Solicitudes);
 
-        Insumos = new JButton("Insumos");
+        Insumos = new JButton("Empleados");
         Insumos.setActionCommand("INSUMOS");
         Insumos.setBackground(Color.WHITE);
         Insumos.setBounds(360,500,120, 50);
@@ -201,5 +213,29 @@ public class Ventana_Tablas extends JPanel {
 
     public void setJscp3(JScrollPane jscp3) {
         this.jscp3 = jscp3;
+    }
+
+    public JLabel getFondo1() {
+        return fondo1;
+    }
+
+    public void setFondo1(JLabel fondo1) {
+        this.fondo1 = fondo1;
+    }
+
+    public JLabel getFondo2() {
+        return fondo2;
+    }
+
+    public void setFondo2(JLabel fondo2) {
+        this.fondo2 = fondo2;
+    }
+
+    public JLabel getFondo3() {
+        return fondo3;
+    }
+
+    public void setFondo3(JLabel fondo3) {
+        this.fondo3 = fondo3;
     }
 }
