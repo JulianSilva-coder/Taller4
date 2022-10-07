@@ -23,4 +23,8 @@ public class Connection_Local {
         }
         return conexion_local;
     }
+
+    public void desconectar() {
+        conexion_local = null;
+    }
 }

@@ -12,6 +12,10 @@ public class Ciudad {
         this.id_Inempresa = id_Inempresa;
     }
 
+    public Ciudad(){
+
+    }
+
     public int getId() {
         return id;
     }

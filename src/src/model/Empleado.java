@@ -12,6 +12,10 @@ public class Empleado {
         this.solicitud = solicitud;
     }
 
+    public Empleado() {
+
+    }
+
     public int getId() {
         return id;
     }

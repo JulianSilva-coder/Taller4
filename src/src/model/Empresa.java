@@ -12,6 +12,10 @@ public class Empresa {
         this.id_Empleado = id_Empleado;
     }
 
+    public Empresa (){
+
+    }
+
     public int getId() {
         return id;
     }

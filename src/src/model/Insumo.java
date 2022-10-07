@@ -14,6 +14,10 @@ public class Insumo {
         this.id_Ciudad = id_Ciudad;
     }
 
+    public Insumo(){
+
+    }
+
     public int getId() {
         return id;
     }

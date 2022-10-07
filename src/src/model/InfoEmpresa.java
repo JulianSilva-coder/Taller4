@@ -1,14 +1,19 @@
 package model;
 
-public class infoEmpresa {
+public class InfoEmpresa {
+
     private int id;
     private int id_Empresa;
-    private String factura;
+    private int factura;
 
-    public infoEmpresa(int id, int id_Empresa, String factura){
+    public InfoEmpresa(int id, int id_Empresa, int factura){
         this.id = id;
         this.id_Empresa = id_Empresa;
         this.factura = factura;
+    }
+
+    public InfoEmpresa(){
+
     }
 
     public int getId() {
@@ -27,11 +32,11 @@ public class infoEmpresa {
         this.id_Empresa = id_Empresa;
     }
 
-    public String getFactura() {
+    public int getFactura() {
         return factura;
     }
 
-    public void setFactura(String factura) {
+    public void setFactura(int factura) {
         this.factura = factura;
     }
 }

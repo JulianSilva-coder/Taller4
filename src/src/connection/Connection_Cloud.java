@@ -23,4 +23,8 @@ public class Connection_Cloud {
         }
         return conexion_cloud;
     }
+
+    public void desconectar() {
+        conexion_cloud = null;
+    }
 }
