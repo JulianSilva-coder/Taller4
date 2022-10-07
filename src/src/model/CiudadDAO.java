@@ -1,13 +1,13 @@
 package model;
 
-import connection.Connection_Local;
+import connection.Connection_Cloud;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class CiudadDAO {
 
-    Connection_Local conex = new Connection_Local();
+    Connection_Cloud conex = new Connection_Cloud();
 
     public boolean registrarCiudad(Ciudad ciudad){
         boolean registrar = false;
@@ -33,9 +33,9 @@ public class CiudadDAO {
             ResultSet res = consulta.executeQuery();
             while (res.next()) {
                 Ciudad ciudad = new Ciudad();
-                ciudad.setId(res.getInt("Id"));
-                ciudad.setNombre(res.getString("Nombre"));
-                ciudad.setId_Inempresa(res.getInt("Id_Inempresa"));
+                ciudad.setId(res.getInt("id"));
+                ciudad.setNombre(res.getString("nombre"));
+                ciudad.setId_Inempresa(res.getInt("id_info"));
                 ciudades.add(ciudad);
             }
             res.close();
@@ -46,5 +46,28 @@ public class CiudadDAO {
             e.printStackTrace();
         }
         return ciudades;
+    }
+
+    public Ciudad consultarCiudad(String nombre) {
+        Ciudad ciudad = new Ciudad();
+        try {
+            PreparedStatement consulta = conex.establecerConexion()
+                    .prepareStatement("SELECT * FROM ciudad WHERE nombre = ? ;");
+            consulta.setString(1, nombre);
+            ResultSet res = consulta.executeQuery();
+
+            if (res.next()) {
+                ciudad.setId(res.getInt("id"));
+                ciudad.setNombre(nombre);
+                ciudad.setId_Inempresa(res.getInt("id_info"));
+            }
+            res.close();
+            consulta.close();
+            conex.desconectar();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ciudad;
     }
 }

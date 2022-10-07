@@ -1,13 +1,13 @@
 package model;
 
-import connection.Connection_Local;
+import connection.Connection_Cloud;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class InsumoDAO {
 
-    Connection_Local conex = new Connection_Local();
+    Connection_Cloud conex = new Connection_Cloud();
 
     public boolean registrarInsumo(Insumo insumo){
         boolean registrar = false;
@@ -48,5 +48,29 @@ public class InsumoDAO {
             e.printStackTrace();
         }
         return insumos;
+    }
+
+    public Insumo consultarInsumo(int id) {
+        Insumo insumo = new Insumo();
+        try {
+            PreparedStatement consulta = conex.establecerConexion()
+                    .prepareStatement("SELECT * FROM insumo WHERE id = ? ;");
+            consulta.setInt(1, id);
+            ResultSet res = consulta.executeQuery();
+
+            if (res.next()) {
+                insumo.setId(id);
+                insumo.setNombre(res.getString("nombrein"));
+                insumo.setDescripción(res.getString("descripcion"));
+                insumo.setId_Ciudad(res.getInt("id_ciudad"));
+            }
+            res.close();
+            consulta.close();
+            conex.desconectar();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return insumo;
     }
 }

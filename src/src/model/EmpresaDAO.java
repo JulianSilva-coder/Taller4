@@ -47,4 +47,27 @@ public class EmpresaDAO {
         }
         return empresas;
     }
+
+    public Empresa consultarEmpresa(String nombre) {
+        Empresa empresa = new Empresa();
+        try {
+            PreparedStatement consulta = conex.establecerConexion()
+                    .prepareStatement("SELECT * FROM empresa WHERE nombre = ? ;");
+            consulta.setString(1, nombre);
+            ResultSet res = consulta.executeQuery();
+
+            if (res.next()) {
+                empresa.setId(res.getInt("id"));
+                empresa.setNombre(nombre);
+                empresa.setId_Empleado(res.getInt("id_empleado"));
+            }
+            res.close();
+            consulta.close();
+            conex.desconectar();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return empresa;
+    }
 }
