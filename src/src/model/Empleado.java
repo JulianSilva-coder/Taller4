@@ -6,10 +6,13 @@ public class Empleado {
     private String nombre;
     private String solicitud;
 
-    public Empleado(int id, String nombre, String solicitud){
+    private int id_empresa;
+
+    public Empleado(int id, String nombre, String solicitud, int id_empresa){
         this.id = id;
         this.nombre = nombre;
         this.solicitud = solicitud;
+        this.id_empresa = id_empresa;
     }
 
     public Empleado() {
@@ -38,5 +41,13 @@ public class Empleado {
 
     public void setSolicitud(String solicitud) {
         this.solicitud = solicitud;
+    }
+
+    public int getId_empresa() {
+        return id_empresa;
+    }
+
+    public void setId_empresa(int id_empresa) {
+        this.id_empresa = id_empresa;
     }
 }

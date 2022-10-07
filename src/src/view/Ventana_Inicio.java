@@ -3,14 +3,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Ventana_Inicio extends JPanel {
-    private JLabel etiqueta1, etiqueta2, etiqueta3, etiqueta4;
+    private JLabel etiqueta1, etiqueta2, etiqueta3, etiqueta4, etiqueta5;
     private JTextField barra1;
     private JTextArea barra2;
-    private JComboBox eleccion1;
+    private JComboBox eleccion1, eleccion2;
 
     private JButton enviar, tablas;
     public Ventana_Inicio(){
-        setSize(700,600);
+        setSize(700,700);
         setBackground(Color.RED);
         setLayout(null);
         iniciarcomponentes();
@@ -40,33 +40,51 @@ public class Ventana_Inicio extends JPanel {
 
         eleccion1 = new JComboBox();
         eleccion1.addItem("Selecciona");
-        eleccion1.addItem("WorldTecno");
-        eleccion1.addItem("Exito");
-        eleccion1.addItem("HomeCenter");
-        eleccion1.addItem("Salchipapa");
+        eleccion1.addItem("WORLDTECNO");
+        eleccion1.addItem("EXITO");
+        eleccion1.addItem("HOMECENTER");
+        eleccion1.addItem("SALCHIPAPA");
         eleccion1.setBounds(100, 200, 350, 30);
         eleccion1.setFont(new Font("Arial", Font.BOLD, 20));
         add(eleccion1);
 
+
+        etiqueta5 = new JLabel("Selecciona la empresa en la que te encuentras:");
+        etiqueta5.setBounds(100,220,450,50);
+        etiqueta5.setFont(new Font("Arial", Font.BOLD, 20));
+        add(etiqueta5);
+
+        eleccion2 = new JComboBox();
+        eleccion2.addItem("Selecciona");
+        eleccion2.addItem("BOGOTA");
+        eleccion2.addItem("MEDELLIN");
+        eleccion2.addItem("BARRANQUILLA");
+        eleccion2.addItem("CUCUTA");
+        eleccion2.addItem("CALI");
+        eleccion2.setBounds(100, 270, 350, 30);
+        eleccion2.setFont(new Font("Arial", Font.BOLD, 20));
+        add(eleccion2);
+
+
         etiqueta4 = new JLabel("Escribe la peticion que deseas realizar:");
-        etiqueta4.setBounds(100,250,450,50);
+        etiqueta4.setBounds(100,300,450,50);
         etiqueta4.setFont(new Font("Arial", Font.BOLD, 20));
         add(etiqueta4);
 
         barra2 = new JTextArea();
-        barra2.setBounds(70, 300, 500, 150);
+        barra2.setBounds(70, 380, 500, 150);
         barra2.setFont(new Font("Arial", Font.BOLD, 20));
         add(barra2);
 
         enviar = new JButton("Enviar Comentario");
-        enviar.setBounds(70, 460, 250, 50);
+        enviar.setBounds(70, 570, 250, 50);
         enviar.setFont(new Font("Arial", Font.BOLD, 15));
         enviar.setActionCommand("ENVIAR");
         enviar.setBackground(Color.WHITE);
         add(enviar);
 
         tablas = new JButton("Tablas");
-        tablas.setBounds(350, 460, 150, 50);
+        tablas.setBounds(350, 570, 150, 50);
         tablas.setFont(new Font("Arial", Font.BOLD, 15));
         tablas.setActionCommand("TABLAS");
         tablas.setBackground(Color.WHITE);
@@ -143,5 +161,21 @@ public class Ventana_Inicio extends JPanel {
 
     public void setTablas(JButton tablas) {
         this.tablas = tablas;
+    }
+
+    public JLabel getEtiqueta5() {
+        return etiqueta5;
+    }
+
+    public void setEtiqueta5(JLabel etiqueta5) {
+        this.etiqueta5 = etiqueta5;
+    }
+
+    public JComboBox getEleccion2() {
+        return eleccion2;
+    }
+
+    public void setEleccion2(JComboBox eleccion2) {
+        this.eleccion2 = eleccion2;
     }
 }

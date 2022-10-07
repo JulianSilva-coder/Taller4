@@ -11,7 +11,7 @@ public class Ventana_Principal extends JFrame {
         setTitle("Solicitud de Insumos");
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(700,600);
+        setSize(700,700);
         setLayout(null);
         iniciarLayouts();
         setVisible(true);

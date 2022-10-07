@@ -9,12 +9,13 @@ public class EmpleadoDAO {
 
     Connection_Local conex = new Connection_Local();
 
-    public boolean registrarEmpleado(Empleado empleado){
+    public boolean registrarEmpleado(Empleado empleado) {
         boolean registrar = false;
         try {
             Statement stmt = conex.establecerConexion().createStatement();
             stmt.executeUpdate("INSERT INTO empleado VALUES (" + empleado.getId() + ", '"
-                    + empleado.getNombre() + "', '" + empleado.getSolicitud() + "')");
+                    + empleado.getNombre() + "', '" + empleado.getSolicitud() + "'," + empleado.getId_empresa()
+                    + ")");
             registrar = true;
             stmt.close();
             conex.desconectar();
@@ -25,7 +26,8 @@ public class EmpleadoDAO {
         return registrar;
     }
 
-    public ArrayList<Empleado> listaDeEmpleados() {
+
+            public ArrayList<Empleado> listaDeEmpleados() {
         ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 
         try {
@@ -46,5 +48,10 @@ public class EmpleadoDAO {
             e.printStackTrace();
         }
         return empleados;
+    }
+    public int incremento(){
+        int n = 0;
+        n = listaDeEmpleados().size();
+        return n++;
     }
 }

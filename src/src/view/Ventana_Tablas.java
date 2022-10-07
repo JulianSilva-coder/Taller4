@@ -1,11 +1,15 @@
 package view;
 
+import model.TablaEmpleado;
+import model.TablaEmpleadoDAO;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Ventana_Tablas extends JPanel {
-    private JTable tablaSolicitudes, tablaHeroku, tablaEmpleados;
+    private JTable tablaSolicitudes, tablaHeroku, tablaEmpleados, fondo;
     private JButton atras, Solicitudes, Insumos, Empresas;
 
     private DefaultTableModel modelotabla1,modelotabla2,modelotabla3;
@@ -16,7 +20,7 @@ public class Ventana_Tablas extends JPanel {
 
         tablaSolicitudes = new JTable();
 
-        setSize(700,600);
+        setSize(700,700);
         setBackground(Color.cyan);
         setLayout(null);
         iniciarcomponentes();
@@ -47,6 +51,12 @@ public class Ventana_Tablas extends JPanel {
         jscp2.setVisible(false);
         add(jscp2);
         cantidad++;
+    }
+
+    public void mostrarempleado(ArrayList<TablaEmpleado> tabla){
+        for (int i = 0; i <= tabla.size(); i++){
+            modelotabla1.addRow(new Object[] {tabla.get(i).getEmpleado(), tabla.get(i).getSolicitud(), tabla.get(i).getEmpresa()});
+        }
     }
 
     private void crearTablaEmpresas() {

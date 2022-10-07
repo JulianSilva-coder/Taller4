@@ -2,6 +2,7 @@ package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 public class Connection_Local {
     Connection conexion_local = null;
@@ -17,6 +18,7 @@ public class Connection_Local {
         try {
             Class.forName("org.postgresql.Driver");
             conexion_local = DriverManager.getConnection(cadena,usuario,contrasena);
+
             System.out.println("Se conecto Correctamente la BD Local");
         }catch (Exception e){
             System.out.println("Error de conexion de BD local provocado por: "+ e.getMessage());
